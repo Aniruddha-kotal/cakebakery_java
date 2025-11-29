@@ -9,13 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CakebakeryApplication implements CommandLineRunner {
 
-//	@Autowired
-	final Frosting frosting; //dependency injection
-	final Syrup syrup;
+	final CakeBaker cakeBaker;
 
-	public CakebakeryApplication(Frosting frosting, Syrup syrup) {
-		this.frosting = frosting;  // constructor injection //preferred
-		this.syrup = syrup;
+	public CakebakeryApplication(CakeBaker cakeBaker) {
+		this.cakeBaker = cakeBaker;
 	}
 
 	public static void main(String[] args) {
@@ -26,8 +23,7 @@ public class CakebakeryApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		frosting.getFrostingType();
-		syrup.getSyrupType();
+		cakeBaker.bakeCake();
 	}
 
 
